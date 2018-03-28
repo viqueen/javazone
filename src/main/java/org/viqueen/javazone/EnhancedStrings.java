@@ -11,6 +11,9 @@ public class EnhancedStrings {
 //        ";
 //        System.out.println(poem);
 
+//        // string template
+//        final String output = `No strings attached poem : ${poem}`;
+//        System.out.println(output);
     }
 
 }

@@ -35,7 +35,7 @@
         <profile>
             <id>strings</id>
             <build>
-                <defaultGoal>verify exec:java</defaultGoal>
+                <defaultGoal>clean verify exec:java</defaultGoal>
                 <plugins>
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
@@ -51,7 +51,7 @@
         <profile>
             <id>maps</id>
             <build>
-                <defaultGoal>verify exec:java</defaultGoal>
+                <defaultGoal>clean verify exec:java</defaultGoal>
                 <plugins>
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
@@ -67,7 +67,7 @@
         <profile>
             <id>sets</id>
             <build>
-                <defaultGoal>verify exec:java</defaultGoal>
+                <defaultGoal>clean verify exec:java</defaultGoal>
                 <plugins>
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
