@@ -14,6 +14,22 @@ public class EnhancedStrings {
 //        // string template
 //        final String output = `No strings attached poem : ${poem}`;
 //        System.out.println(output);
+
+//        // string template with property selection
+//        final User attendee = new User("Hasnae", "R.");
+//        System.out.println(`Attendee Fullname : ${attendee.firstName} ${attendee.lastName}`);
     }
 
+
+    public static class User {
+
+        final String firstName;
+        final String lastName;
+
+        User(String firstName, String lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+
+    }
 }
