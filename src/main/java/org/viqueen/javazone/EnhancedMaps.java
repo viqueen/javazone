@@ -18,6 +18,13 @@ public class EnhancedMaps {
 //                "city": "Sydney",
 //        };
 //        System.out.println(`all the relevant info : ${data}`);
+
+//        // type bound map
+//        final Map<String, String> capitals = {
+//                "Norway" : "Oslo",
+//                "Australia" : "Canberra"
+//        };
+//        System.out.println(`some capitals : ${capitals}`);
     }
 
 }
