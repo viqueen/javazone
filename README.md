@@ -11,12 +11,15 @@
 7. Common sense
 8. Sense of humour
 
-#### get it
+### Scope : Lang-tools
 
 ```bash
 hg clone http://hg.openjdk.java.net/jdk10/jdk10/
 cd jdk10
-bash get_source.sh
+# optional
+bash get_source.sh   # to fetch all the repositories
+#recommended
+hg clone http://hg.openjdk.java.net/jdk10/jdk10/langtools/
 ```
 
 Getting the source code will take a while, so in the mean time read up on the 
@@ -35,17 +38,10 @@ jenv shell ${someversion}
 
 cd jdk10
 bash configure --with-boot-jdk=$(jenv javahome)
-
 bash common/bin/idea.sh # generates IDEA project files
 ```
 
 #### build it
-
-```bash
-cd jdk10
-make images
-jenv add build/macosx-x86_64-normal-server-release/jdk/  # path varies by platform
-```
 
 ```bash
 cd langtools
@@ -54,7 +50,7 @@ ant -f make/build.xml -Djdk.home=$(jenv javahome)
 echo "export JAVA_ZONE_COMPILER=$(pwd)/build/bin/javac" >> ~/.bash_profile
 ```
 
-#### verify it
+#### verify this project
 
 ```bash
 git clone git@github.com:viqueen/javazone.git
