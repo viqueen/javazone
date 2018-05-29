@@ -22,8 +22,8 @@ bash get_source.sh   # to fetch all the repositories
 hg clone http://hg.openjdk.java.net/jdk10/jdk10/langtools/
 ```
 
-Getting the source code will take a while, so in the mean time read up on the 
-requirements to [build openjdk](http://hg.openjdk.java.net/jdk10/jdk10/file/62306e615de1/common/doc/building.md) 
+Getting the source code will take a while, so in the mean time read up on the
+requirements to [build openjdk](http://hg.openjdk.java.net/jdk10/jdk10/file/62306e615de1/common/doc/building.md)
 on your platform of choice (macOs, windows, linux)
 
 
@@ -39,6 +39,13 @@ jenv shell ${someversion}
 cd jdk10
 bash configure --with-boot-jdk=$(jenv javahome)
 bash common/bin/idea.sh # generates IDEA project files
+```
+
+the configure step may fail for missing freetype package
+
+```bash
+# macOs
+brew install freetype
 ```
 
 #### build it
