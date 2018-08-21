@@ -1,71 +1,101 @@
 package org.viqueen.javazone;
 
+import java.util.Map;
+
+import static java.lang.String.format;
+
 public class EnhancedMaps {
-
-    public static void main (String... args) {
-//        // empty map definition
+    /**
+     * Exercise 1: introducing the javascript dictionary definition
+     * Map empty = {};
+     */
+    private static void emptyMapDefinition () {
 //        final Map empty  = {};
-//        System.out.println(`empty map : ${empty}`);
+//        System.out.println(format("empty map : %s", empty));
+    }
 
-//        // singleton map
-//        final Map singleton = { "name": "Hasnae R" };
-//        System.out.println(`singleton map : ${singleton}`);
+    /**
+     * Exercise 2: introducing a single entry map with a String key value pair ... baby steps
+     * Map singleton = {
+     *     "key": "value"
+     * }
+     */
+    private static void singletonMapDefinition () {
+//        final Map singleton = {
+//              "name": "Hasnae R"
+//        };
+//        System.out.println(format("singleton map : %s", singleton));
+    }
 
-//        // multi entry map
+    /**
+     * Exercise 3: introducing a multi entry map with String key value pairs
+     */
+    private static void multiEntryMapDefinition () {
 //        final Map data = {
 //                "name": "Hasnae R.",
 //                "age": "mind your own business FFS",
 //                "city": "Sydney",
 //        };
-//        System.out.println(`all the relevant info : ${data}`);
+//        System.out.println(format("all the relevant info : %s", data));
+    }
 
-//        // type bound map
+    /**
+     * Exercise 4.1: introducing a multi entry type bound map with (String, String) key value pairs
+     */
+    private static void typeBoundMapDefinition_1 () {
+        // Strings for simplicity
 //        final Map<String, String> capitals = {
 //                "Norway" : "Oslo",
 //                "Australia" : "Canberra"
 //        };
-//        System.out.println(`some capitals : ${capitals}`);
+//        System.out.println(format("some capitals : %s", capitals));
+    }
 
-//        // please something other than strings
+    /**
+     * Exercise 4.2: introducing a multi entry type bound map with (String,Primitive) key value pairs
+     */
+    private static void typeBoundMapDefinition_2 () {
+        // please something other than strings
 //        final Map<String, Boolean> supported  = {
 //                "strings" : true,
 //                "boolean" : true,
 //                "anytype" : false
 //        };
-//        System.out.println(`are booleans supported ? : ${supported}`);
+//        System.out.println(format("are booleans supported ? : %s", supported));
+    }
 
+    /**
+     * Exercise 4.3: introducing a multi entry type bound map with (String, OBJECT_TYPE) key value pairs
+     */
+    private static void typeBoundMapDefinition_3 () {
 //        final Map<String, Joke> jokes = {
 //            "sql": new Joke("a query walks into a bar and joins two tables"),
 //            "computers": new Joke("before computers, a mouse pad was where a mouse lived"),
 //        };
-//        System.out.println(`jokes :
-//            ${jokes}
-//        `);
-
-//        final Map<String, ?> previousThings = {
-//                "data" : data,
-//                "capitals" : capitals,
-//                "jokes" : jokes,
-//                "true": true
-//        };
-//        System.out.println(`If this works I'll buy myself a coffee
-//            ${previousThings}
-//        `);
+//        System.out.println(format("jokes : %s", jokes));
     }
 
-//    public static class Joke {
-//        private final String notFunny;
-//
-//        public Joke(final String notFunny) {
-//            this.notFunny = notFunny;
-//        }
-//
-//        @Override
-//        public String toString() {
-//            return `terrible joke :
-//                ${notFunny}
-//            `;
-//        }
-//    }
+    public static void main (String... args) {
+        emptyMapDefinition();
+        singletonMapDefinition();
+        multiEntryMapDefinition();
+        typeBoundMapDefinition_1();
+        typeBoundMapDefinition_2();
+        typeBoundMapDefinition_3();
+    }
+
+    @SuppressWarnings("unused")
+    public static class Joke {
+        private final String notFunny;
+
+        Joke(final String notFunny) {
+            this.notFunny = notFunny;
+        }
+
+        @Override
+        public String toString() {
+            return format("terrible joke : %s", notFunny);
+        }
+    }
 
 }
