@@ -8,6 +8,14 @@ public class EnhancedMaps {
     /**
      * Exercise 1: introducing the javascript dictionary definition
      * Map empty = {};
+     *
+     * Hints :
+     * - we need to identify the syntax, and convert it to an equivalent statement : Collections.emptyMap()
+     * - this statement is essentially a variable initialization expression
+     * - have a look around {@code com.sun.tools.javac.parser.JavacParser} to see if anything sparks up ideas.
+     * - ok fine, it's similar to an array initialisation.
+     * - so basically you need to modify the code to take into account the "type" being initialised
+     * - also {@code com.sun.tools.javac.tree.TreeMaker} is where you can get inspired to create equivalent statements
      */
     private static void emptyMapDefinition () {
 //        final Map empty  = {};
