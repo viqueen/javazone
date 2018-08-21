@@ -11,6 +11,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
     </properties>
 
     <build>
@@ -23,9 +24,9 @@
                     <verbose>true</verbose>
                     <fork>true</fork>
                     <executable>${env.JAVA_ZONE_COMPILER}</executable>
-                    <compilerVersion>1.10</compilerVersion>
-                    <target>1.10</target>
-                    <source>1.10</source>
+                    <compilerVersion>${java.version}</compilerVersion>
+                    <target>${java.version}</target>
+                    <source>${java.version}</source>
                 </configuration>
             </plugin>
         </plugins>
@@ -59,22 +60,6 @@
                         <version>1.2.1</version>
                         <configuration>
                             <mainClass>org.viqueen.javazone.EnhancedMaps</mainClass>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>sets</id>
-            <build>
-                <defaultGoal>clean verify exec:java</defaultGoal>
-                <plugins>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>exec-maven-plugin</artifactId>
-                        <version>1.2.1</version>
-                        <configuration>
-                            <mainClass>org.viqueen.javazone.EnhancedSets</mainClass>
                         </configuration>
                     </plugin>
                 </plugins>
