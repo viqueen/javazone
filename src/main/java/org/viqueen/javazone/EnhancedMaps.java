@@ -6,16 +6,16 @@ import static java.lang.String.format;
 
 public class EnhancedMaps {
     /**
-     * Exercise 1: introducing the javascript dictionary definition
+     * Exercise 1: introducing a javascript like dictionary definition
      * Map empty = {};
      *
      * Hints :
      * - we need to identify the syntax, and convert it to an equivalent statement : Collections.emptyMap()
      * - this statement is essentially a variable initialization expression
      * - have a look around {@code com.sun.tools.javac.parser.JavacParser} to see if anything sparks up ideas.
-     * - ok fine, it's similar to an array initialisation.
-     * - so basically you need to modify the code to take into account the "type" being initialised
-     * - also {@code com.sun.tools.javac.tree.TreeMaker} is where you can get inspired to create equivalent statements
+     * - ok fine, it's similar to an array initialization.
+     * - so basically you need to modify the variable init method to take into account the "type" being initialized
+     * - also {@code com.sun.tools.javac.tree.TreeMaker} is where you create equivalent statements
      */
     private static void emptyMapDefinition () {
 //        final Map empty  = {};
@@ -27,6 +27,12 @@ public class EnhancedMaps {
      * Map singleton = {
      *     "key": "value"
      * }
+     *
+     * Hints:
+     * - now we need to identify a key value entry syntax ( keyStringLiteral colon valueStringLiteral )
+     * - you can use token.kind and peekToken to determine if you have a valid syntax, or else you should fail the
+     * compilation with an "illegal" error statement
+     * - you may use {@code com.sun.tools.javac.util.Pair} to hold the key value literals you are parsing
      */
     private static void singletonMapDefinition () {
 //        final Map singleton = {
