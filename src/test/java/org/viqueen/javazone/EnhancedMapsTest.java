@@ -4,8 +4,8 @@ import org.junit.Test;
 
 import java.util.Map;
 
-import static org.hamcrest.Matchers.hasItems;
-import static org.hamcrest.Matchers.is;
+import static java.lang.String.format;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 
 public class EnhancedMapsTest {
@@ -26,8 +26,8 @@ public class EnhancedMapsTest {
 
     @Test
     public void testEmptyMapDefinition() {
-        final Map empty  = {};
-        assertThat(empty.size(), is(0));
+//        final Map empty  = {};
+//        assertThat(empty.size(), is(0));
     }
 
     /**
@@ -47,10 +47,10 @@ public class EnhancedMapsTest {
      */
     @Test
     public void testSingletonMapDefinition () {
-        final Map singleton = {
-              "name": "Hasnae R"
-        };
-        assertThat(singleton.size(), is(1));
+//        final Map singleton = {
+//              "name": "Hasnae R"
+//        };
+//        assertThat(singleton.size(), is(1));
     }
 
     /**
@@ -58,12 +58,14 @@ public class EnhancedMapsTest {
      * Map data = {
      *     "keyOne": "valueOne",
      *     "keyTwo": "valueTwo"
-     * }
+     * };
      *
      * Hints:
      * - now we need to identify the following syntax: LBRACE
-     *          STRINGLITERAL COLON STRINGLITERAL
-     *          COMMA ? (optional)
+     *          (
+     *              STRINGLITERAL COLON STRINGLITERAL
+     *              COMMA ? (optional)
+     *          ) +
      *      RBRACE
      *
      * - we need to modify our map entry parsing to consume entries as long as we did not hit a right brace
@@ -89,12 +91,113 @@ public class EnhancedMapsTest {
      */
     @Test
     public void testMultiEntryMapDefinition () {
-        final Map data = {
-                "name": "Hasnae R.",
-                "age": "mind your own business FFS",
-                "city": "Sydney"
-        };
-        assertThat(data.size(), is(3));
+//        final Map data = {
+//                "name": "Hasnae R.",
+//                "age": "mind your own business FFS",
+//                "city": "Sydney"
+//        };
+//        assertThat(data.size(), is(3));
     }
 
+    /**
+     * Exercise 4.1: introducing a multi entry type bound map with (String, String) key value pairs
+     * Map<String, String> data = {
+     *     "keyOne": "valueOne",
+     *     "keyTwo": "valueTwo"
+     * };
+     *
+     * Hints:
+     * - the way we identify if it is a map initialization is not comprehensive
+     * - we need to test if type parameters apply.
+     * - if you need to debug/log you may use the following
+     *
+     * log.rawWarning(
+     *    token.pos,
+     *    String.format(
+     *      "type : %s, class : %s",
+     *      type, type != null ? type.getClass() : "oops"
+     *    )
+     * );
+     *
+     *
+     */
+    @Test
+    public void testTypeBoundMapDefinition_1 () {
+        // Strings for simplicity
+//        final Map<String, String> capitals = {
+//                "Norway" : "Oslo",
+//                "Australia" : "Canberra"
+//        };
+//        assertThat(capitals.size(), is(2));
+//        assertThat(capitals, allOf(
+//                hasEntry("Norway", "Oslo"),
+//                hasEntry("Australia", "Canberra")
+//        ));
+    }
+
+    /**
+     * Exercise 4.2: introducing a multi entry type bound map with (String,Primitive) key value pairs
+     * Map<String, Boolean> data = {
+     *     "keyOne": true,
+     *     "keyTwo": false
+     * };
+     *
+     * Hints:
+     * - now we need to identify the following syntax: LBRACE
+     *                (
+     *                    STRINGLITERAL COLON EXPRESSION
+     *                    COMMA ? (optional)
+     *                ) +
+     *            RBRACE
+     *
+     * - you may rely on the method "parseExpression" available to you in JavacParser
+     */
+    @Test
+    public void testTypeBoundMapDefinition_2 () {
+        // please something other than strings
+//        final Map<String, Boolean> supported  = {
+//                "strings" : true,
+//                "boolean" : true,
+//                "anytype" : false
+//        };
+//        assertThat(supported.size(), is(3));
+//        assertThat(supported, allOf(
+//                hasEntry("strings", true),
+//                hasEntry("boolean", true),
+//                hasEntry("anytype", false)
+//        ));
+    }
+
+
+    /**
+     * Exercise 4.3: introducing a multi entry type bound map with (String, OBJECT_TYPE) key value pairs
+     *
+     * Hints:
+     * - this should work out of the box with the work done on 4.2
+     * - should it fail, holler at me with intrigued looks and questions
+     */
+    @Test
+    public void testTypeBoundMapDefinition_3 () {
+//        final Map<String, Joke> jokes = {
+//            "sql": new Joke("a query walks into a bar and joins two tables"),
+//            "computers": new Joke("before computers, a mouse pad was where a mouse lived"),
+//            "hardware": new Joke("aircon and laptops are both useless ... when you open windows")
+//        };
+//        assertThat(jokes.size(), is(3));
+//        assertThat(jokes.keySet(), hasItems("sql", "computers", "hardware"));
+    }
+
+    @SuppressWarnings("unused")
+    public static class Joke {
+        private final String notFunny;
+
+        Joke(final String notFunny) {
+            this.notFunny = notFunny;
+        }
+
+        @Override
+        public String toString() {
+            return format("terrible joke : %s", notFunny);
+        }
+    }
 }
