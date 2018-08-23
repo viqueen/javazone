@@ -1,5 +1,6 @@
 package org.viqueen.javazone;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import static java.lang.String.format;
