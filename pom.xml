@@ -44,7 +44,7 @@
                 <configuration>
                     <verbose>true</verbose>
                     <fork>true</fork>
-                    <executable>${env.JAVA_ZONE_COMPILER}</executable>
+                    <executable>${env.JAVAZONE_COMPILER}</executable>
                     <compilerVersion>${java.version}</compilerVersion>
                     <target>${java.version}</target>
                     <source>${java.version}</source>
