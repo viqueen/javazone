@@ -34,7 +34,7 @@ jenv shell ${someversion}
 cd jdk8/langtools
 ant -f make/build.xml -Dboot.java.home=$(jenv javahome)
 
-echo "export JAVA_ZONE_COMPILER=$(pwd)/build/bootstrap/bin/javac" >> ~/.bash_profile
+echo "export JAVAZONE_COMPILER=$(pwd)/build/bootstrap/bin/javac" >> ~/.bash_profile
 ```
 
 #### verify this project
