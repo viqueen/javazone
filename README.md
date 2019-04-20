@@ -2,19 +2,16 @@
 
 ### Requirements
 
-1. [mercurial](https://www.mercurial-scm.org/)
-2. [git](https://git-scm.com/)
-3. [jEnv](http://www.jenv.be/)
-4. [mvnvm](http://mvnvm.org/)
-5. [ant](https://ant.apache.org/)
-6. [jdk 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-7. Common sense
-8. Sense of humour
+1. [git](https://git-scm.com/)
+2. [jEnv](http://www.jenv.be/)
+3. [mvnvm](http://mvnvm.org/)
+4. [jdk 12](https://medium.com/r/?url=https%3A%2F%2Fadoptopenjdk.net%2F%3Fvariant%3Dopenjdk12%26jvmVariant%3Dhotspot)
+5. Common Sense
 
-### Scope : Lang-tools
+#### OpenJDK source
 
 ```bash
-hg clone http://hg.openjdk.java.net/jdk8/jdk8/langtools jdk8/langtools
+git clone https://github.com/viqueen/jdk.git
 ```
 
 #### configure it
@@ -23,18 +20,19 @@ Use `jenv` to manage jdk versions, you will need to add an existing jdk 8 or 9 a
 the current terminal shell to use that version.
 
 ```bash
-jenv add /path/to/an/existing/jdk/8/or/9/home/directory
+jenv add /path/to/an/existing/jdk/12/home/directory
 jenv shell ${someversion}
-
 ```
 
 #### build it
 
 ```bash
-cd jdk8/langtools
-ant -f make/build.xml -Dboot.java.home=$(jenv javahome)
+cd jdk
+bash configure
 
-echo "export JAVAZONE_COMPILER=$(pwd)/build/bootstrap/bin/javac" >> ~/.bash_profile
+make images
+jenv add build/macosx-x86_64-server-release/jdk/
+
 ```
 
 #### verify this project
@@ -42,6 +40,9 @@ echo "export JAVAZONE_COMPILER=$(pwd)/build/bootstrap/bin/javac" >> ~/.bash_prof
 ```bash
 git clone git@github.com:viqueen/javazone.git
 cd javazone
+
+echo "export JAVAZONE_COMPILER=$(jenv javahome)/bin/javac" >> ~/.bash_profile
+
 mvn -e clean verify
 ```
 
