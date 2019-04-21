@@ -41,7 +41,7 @@ jenv add build/macosx-x86_64-server-release/jdk/
 git clone git@github.com:viqueen/javazone.git
 cd javazone
 
-echo "export JAVAZONE_COMPILER=$(jenv javahome)/bin/javac" >> ~/.bash_profile
+export JAVA_HOME=$(jenv javahome)
 
 mvn -e clean verify
 ```

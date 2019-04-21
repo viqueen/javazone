@@ -16,7 +16,7 @@ public class EnhancedMapsTest {
      *
      * Hints :
      * - we need to identify the syntax, LBRACE RBRACE
-     * - and convert it to an equivalent statement : Collections.emptyMap()
+     * - and convert it to an equivalent statement : Map.ofEntries()
      * - this statement is essentially a variable initialization expression
      * - have a look around {@code com.sun.tools.javac.parser.JavacParser} to see if anything sparks up ideas.
      * - ok fine, it's similar to an array initialization.
@@ -25,8 +25,8 @@ public class EnhancedMapsTest {
      */
     @Test
     public void testEmptyMapDefinition() {
-//        final Map empty  = {};
-//        assertThat(empty.size(), is(0));
+        final Map empty  = {};
+        assertThat(empty.size(), is(0));
     }
 
     /**
@@ -46,10 +46,10 @@ public class EnhancedMapsTest {
      */
     @Test
     public void testSingletonMapDefinition () {
-//        final Map singleton = {
-//              "name": "Hasnae R"
-//        };
-//        assertThat(singleton.size(), is(1));
+        final Map singleton = {
+              "name": "Hasnae R"
+        };
+        assertThat(singleton.size(), is(1));
     }
 
     /**
@@ -90,12 +90,12 @@ public class EnhancedMapsTest {
      */
     @Test
     public void testMultiEntryMapDefinition () {
-//        final Map data = {
-//                "name": "Hasnae R.",
-//                "age": "mind your own business FFS",
-//                "city": "Sydney"
-//        };
-//        assertThat(data.size(), is(3));
+        final Map data = {
+                "name": "Hasnae R.",
+                "age": "mind your own business FFS",
+                "city": "Sydney"
+        };
+        assertThat(data.size(), is(3));
     }
 
     /**
@@ -123,15 +123,15 @@ public class EnhancedMapsTest {
     @Test
     public void testTypeBoundMapDefinition_1 () {
         // Strings for simplicity
-//        final Map<String, String> capitals = {
-//                "Norway" : "Oslo",
-//                "Australia" : "Canberra"
-//        };
-//        assertThat(capitals.size(), is(2));
-//        assertThat(capitals, allOf(
-//                hasEntry("Norway", "Oslo"),
-//                hasEntry("Australia", "Canberra")
-//        ));
+        final Map<String, String> capitals = {
+                "Norway" : "Oslo",
+                "Australia" : "Canberra"
+        };
+        assertThat(capitals.size(), is(2));
+        assertThat(capitals, allOf(
+                hasEntry("Norway", "Oslo"),
+                hasEntry("Australia", "Canberra")
+        ));
     }
 
     /**
@@ -154,17 +154,17 @@ public class EnhancedMapsTest {
     @Test
     public void testTypeBoundMapDefinition_2 () {
         // please something other than strings
-//        final Map<String, Boolean> supported  = {
-//                "strings" : true,
-//                "boolean" : true,
-//                "anytype" : false
-//        };
-//        assertThat(supported.size(), is(3));
-//        assertThat(supported, allOf(
-//                hasEntry("strings", true),
-//                hasEntry("boolean", true),
-//                hasEntry("anytype", false)
-//        ));
+        final Map<String, Boolean> supported  = {
+                "strings" : true,
+                "boolean" : true,
+                "anytype" : false
+        };
+        assertThat(supported.size(), is(3));
+        assertThat(supported, allOf(
+                hasEntry("strings", true),
+                hasEntry("boolean", true),
+                hasEntry("anytype", false)
+        ));
     }
 
 
@@ -177,13 +177,13 @@ public class EnhancedMapsTest {
      */
     @Test
     public void testTypeBoundMapDefinition_3 () {
-//        final Map<String, Joke> jokes = {
-//            "sql": new Joke("a query walks into a bar and joins two tables"),
-//            "computers": new Joke("before computers, a mouse pad was where a mouse lived"),
-//            "hardware": new Joke("aircon and laptops are both useless ... when you open windows")
-//        };
-//        assertThat(jokes.size(), is(3));
-//        assertThat(jokes.keySet(), hasItems("sql", "computers", "hardware"));
+        final Map<String, Joke> jokes = {
+            "sql": new Joke("a query walks into a bar and joins two tables"),
+            "computers": new Joke("before computers, a mouse pad was where a mouse lived"),
+            "hardware": new Joke("aircon and laptops are both useless ... when you open windows")
+        };
+        assertThat(jokes.size(), is(3));
+        assertThat(jokes.keySet(), hasItems("sql", "computers", "hardware"));
     }
 
     @SuppressWarnings("unused")
